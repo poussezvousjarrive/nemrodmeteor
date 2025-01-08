@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import express from "express";
 
-const SYNAPSE_API = "https://synapse-api.replit.app";
+const SYNAPSE_API = "https://synapse-api.replit.app/api";
 
 // replace this by your Synapse Application credentials
 const client_id = "test_app";

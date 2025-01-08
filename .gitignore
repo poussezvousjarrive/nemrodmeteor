@@ -132,7 +132,7 @@ dist
 # Replit debugger
 .breakpoints
 assets/*
-public/*
 package-lock.json
 replit.nix
 .replit
+synapse-front*

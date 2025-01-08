@@ -29,4 +29,4 @@ app.get("/synapse/token", async (req, res) => {
 // static files (html, css, ...) served from /public
 app.use('/', express.static('public'));
 
-app.listen(8080)
+app.listen(8080);

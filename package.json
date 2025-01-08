@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "matheo@paradoxe.tech",
   "license": "ISC",
   "dependencies": {
     "@types/node": "^18.0.6",

@@ -12,6 +12,7 @@ synapse.on("connected", (user) => {
   button.connected(user); // update the login button
   
   // display the user infos
+  
 });
 
 synapse.on("updated", (user) => {

@@ -4,8 +4,8 @@ import express from "express";
 const SYNAPSE_API = "https://synapse-api.replit.app/api";
 
 // replace this by your Synapse Application credentials
-const client_id = "test_app";
-const client_secret = process.env.SYNAPSE_SECRET;
+const CLIENT_ID = "test_app";
+const CLIENT_SECRET = process.env.SYNAPSE_SECRET;
 
 const app = express();
 app.use(express.json());
@@ -17,13 +17,14 @@ app.get("/synapse/token", async (req, res) => {
   let response = await fetch(url, {
     method: "GET",
     headers: {
-       Authorization: `Basic ${client_id}:${client_secret}`
+       Authorization: `Basic ${CLIENT_ID}:${CLIENT_SECRET}`
     }
   });
 
   // a JSON object is returned with token or error
   let data = await response.json();
   res.status(response.status).json(data);
+  
 });
 
 // static files (html, css, ...) served from /public

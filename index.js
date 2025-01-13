@@ -1,10 +1,12 @@
 import fetch from "node-fetch";
 import express from "express";
+import * as dotenv from 'dotenv';
+
+// retrieve the environment variables from .env
+dotenv.config();
 
 const SYNAPSE_API = "https://synapse-api.replit.app/api";
-
-// replace this by your Synapse Application credentials
-const CLIENT_ID = "test_app";
+const CLIENT_ID = process.env.SYNAPSE_ID;
 const CLIENT_SECRET = process.env.SYNAPSE_SECRET;
 
 const app = express();

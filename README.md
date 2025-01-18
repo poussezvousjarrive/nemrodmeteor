@@ -11,7 +11,7 @@ SYNAPSE_ID=<your_synapse_client_id>
 SYNAPSE_SECRET=<your_synapse_client_secret>
 ```
 
-Ensuite, récupérez les fichiers de [Synapsic/Vanilla-front](https://github.com/Synapsic/Vanilla-front) et placez-les dans le dossier `public/`. Il ne vous reste plus qu'à installer les dépendances et à lancer le projet ! Si c'est exécuté localement, vous trouverez votre application à l'adresse [`localhost:8080`](https://localhost:8080/).
+Ensuite, récupérez les fichiers correspondant à Express-Vanilla dans [Front-gist](https://github.com/Synapsic/Front-gist) et placez-les dans le dossier `public/`. Il ne vous reste plus qu'à installer les dépendances et à lancer le projet ! Si c'est exécuté localement, vous trouverez votre application à l'adresse [`localhost:8080`](https://localhost:8080/).
 
 ```bash
 npm install

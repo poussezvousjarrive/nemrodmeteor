@@ -5,21 +5,26 @@ import * as dotenv from 'dotenv';
 // retrieve the environment variables from .env
 dotenv.config();
 
-const SYNAPSE_API = "https://synapse-api.replit.app/api";
+const SYNAPSE_API = "https://api.connectome.fr";
 const CLIENT_ID = process.env.SYNAPSE_ID;
 const CLIENT_SECRET = process.env.SYNAPSE_SECRET;
 
 const app = express();
 app.use(express.json());
 
+const signature = Buffer.from(`${CLIENT_ID}:${CLIENT_SECRET}`).toString("base64");
+
 // main route for Synapse authorization
 app.get("/synapse/token", async (req, res) => {
 
-  const url = `${SYNAPSE_API}/token?code=${req.query.code}`;
+  let url = `${SYNAPSE_API}/token?code=${req.query.code}`;
+  url += `&grant_type=authorization_code`;
+
+  
   let response = await fetch(url, {
-    method: "GET",
+    method: "POST",
     headers: {
-       Authorization: `Basic ${CLIENT_ID}:${CLIENT_SECRET}`
+       Authorization: `Basic ${signature}`
     }
   });
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>j'ai oublié le mot metor</title>
+</head>
+<body>
+  <h1>Météorites aperçues cette année </h1>
+  <pre id="res">Chargement</pre>
+
+  <script>
+
+    async function meteoritesAnnee() {
+      const annee = new Date().getFullYear(); 
+      const url = `https://data.opendatasoft.com/api/explore/v2.1/catalog/datasets/nasa-fireball-and-bolide-reports@datastro/records?limit=100&refine=date:${annee}`;
+      try {
+        const reponse = await fetch(url);
+        if (!reponse.ok) {
+          throw new Error("Erreur HTTP : " + reponse.status);
+        }
+        const data = await reponse.json();
+        if (data.results.length === 0) {
+          document.getElementById("res").textContent = `Aucune météorite aperçue en ${annee}.`;
+          return;
+        }
+        let displayText=''
+        data.results.forEach((d) => {
+          if (d.lon_dir=="E" ){
+            longitude= "+"
+          }
+          else{
+            longitude= "-"
+          }
+          if (d.lat_dir=="N" ){
+            latitude= "+"
+          }
+          else{
+            latitude= "-"
+          }          
+          date= new Date (`${d.date}`)
+          displayText += `Date : ${date} \n`;
+          displayText += `Coordonees :${longitude} ${d.coord.lat ?? "None"},${latitude} ${d.coord.lon ?? "None"}\n`;
+          displayText += `Impact : ${d.energy ?? "None"}\n\n`;
+        });
+        document.getElementById("res").textContent = displayText;
+      } catch (error) {
+        console.error("Erreur lors de la requête :", error);
+        document.getElementById("res").textContent = "Erreur : " + error.message;
+      }
+    }
+
+    meteoritesAnnee(); 
+  </script>
+</body>
+</html>

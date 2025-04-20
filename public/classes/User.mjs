@@ -1,3 +1,4 @@
+import Mission from "./Mission.mjs";
 
 export const Profile = Object.freeze({
   Scientist: 0, 
